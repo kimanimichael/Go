@@ -64,7 +64,7 @@ func getExpenseReport (e expense) (string, float64) {
 
 func test (e expense) {
 	recepient, cost := getExpenseReport(e)
-	
+	//Type switch
 	switch e.(type) {
 	case email:
 		fmt.Printf("Report: The email will be sent to %s and will cost %f \n", recepient, cost)
