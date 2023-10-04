@@ -19,7 +19,7 @@ func maxMessages(thresh float64) int {
 	baseCost := 1
 	additionalCost := 0.01
 	var totalCost float64
-	//Condition ommitted in for loop
+	// Condition ommitted in for loop
 	for i := 0; ; i++ {
 		// cost := float64(baseCost * (i+1)) + (0.01* float64(i))
 		totalCost += float64(baseCost) + (additionalCost)* float64(i)
@@ -29,8 +29,20 @@ func maxMessages(thresh float64) int {
 	}
 }
 
+// While loop implementation of a for loop
+func getMaxMessagesToSend(costMulitplier float64, maxCostInPennies int)  int{
+	actualCostInPennies := 1.0
+	maxMessagesToSend := 0
+
+	for actualCostInPennies <= float64(maxCostInPennies) {
+		maxMessagesToSend++
+		actualCostInPennies *= costMulitplier
+	}
+	return maxMessagesToSend
+}
+
 func main () {
 	fmt.Printf("Total cost %.2f \n", bulkSend(10))
 	fmt.Printf("Total messages %d \n", maxMessages(10))
-
+	fmt.Printf("Max Messages from getMax func: %d \n", getMaxMessagesToSend(1.35, 25))
 }
