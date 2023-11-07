@@ -12,9 +12,9 @@ const (
 
 func getMessageWithRetries () [3]string {
 	var messageReplies [3]string
-	messageReplies[0] = "\nClick here to sign up\n"
-	messageReplies[1] = "Pretty please click here\n"
-	messageReplies[2] = "We demand that you sign up\n"
+	messageReplies[0] = "Click here to sign up"
+	messageReplies[1] = "Pretty please click here"
+	messageReplies[2] = "We demand that you sign up"
 	return messageReplies
 }
 
@@ -34,8 +34,12 @@ func main()  {
 	fmt.Println(getMessageWithRetries()[1])
 
 	proMessages,_ := getMessagesForPlan("pro")
-	fmt.Println(proMessages[:])
+	// fmt.Println(proMessages[:])
+	fmt.Printf("%+q", proMessages[:])
+
+	fmt.Printf("\n")
 
 	freeMessages,_ := getMessagesForPlan("free")
-	fmt.Println(freeMessages[:])
+	// fmt.Println(freeMessages[:])
+	fmt.Printf("%v \n", freeMessages[:])
 }
