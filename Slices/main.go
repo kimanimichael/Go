@@ -34,12 +34,17 @@ func main()  {
 	fmt.Println(getMessageWithRetries()[1])
 
 	proMessages,_ := getMessagesForPlan("pro")
-	// fmt.Println(proMessages[:])
+
+	/* Print array elements with quotes */
 	fmt.Printf("%+q", proMessages[:])
 
 	fmt.Printf("\n")
 
 	freeMessages,_ := getMessagesForPlan("free")
-	// fmt.Println(freeMessages[:])
 	fmt.Printf("%v \n", freeMessages[:])
+
+	/*Print each element of a slice with a for loop*/
+	for i:=0; i<len(freeMessages); i++ {
+		fmt.Println(freeMessages[i])
+	}
 }
