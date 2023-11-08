@@ -18,6 +18,7 @@ func getMessageWithRetries () [3]string {
 	return messageReplies
 }
 
+// Function returning a slice
 func getMessagesForPlan(plan string) ([]string, error) {
 	allMessages := getMessageWithRetries()
 	if plan == planPro {
