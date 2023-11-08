@@ -18,7 +18,7 @@ func getMessageWithRetries () [3]string {
 	return messageReplies
 }
 
-// Function returning a slice
+/* function returning a slice */
 func getMessagesForPlan(plan string) ([]string, error) {
 	allMessages := getMessageWithRetries()
 	if plan == planPro {
@@ -44,8 +44,40 @@ func main()  {
 	freeMessages,_ := getMessagesForPlan("free")
 	fmt.Printf("%v \n", freeMessages[:])
 
-	/*Print each element of a slice with a for loop*/
+	/* print each element of a slice with a for loop */
 	for i:=0; i<len(freeMessages); i++ {
 		fmt.Println(freeMessages[i])
 	}
+
+	/* create a slice of size 5 with an underlying array of size 10 */
+	/* growing a slice past the size of the underlying array leads to reallocation of the underlying array*/
+	definedArraySizeSlice := make([]int, 5, 10)
+	fmt.Println(definedArraySizeSlice[:])
+	
+
+	/* create a slice of size 5 with an underlying array of size 5 */
+	implicitArraySizeSlce := make([]int, 5)
+	fmt.Println(implicitArraySizeSlce[:])
+
+	/* functions for checking length and capacity*/
+	fmt.Println(cap(definedArraySizeSlice))
+	fmt.Println(len(implicitArraySizeSlce))
+
+	messagesCost := getMessagesCost(proMessages)
+	fmt.Println(messagesCost)
+
+
+
+}
+
+func getMessagesCost(messages []string) []float64 {
+	messagesCost := make([]float64, len(messages))
+	for i:=0; i < len(messages); i++ {
+		message := messages[i]
+		cost := float64(len(message)) * 0.01
+		messagesCost[i] = cost
+	}
+	return messagesCost
+}
+
 }
