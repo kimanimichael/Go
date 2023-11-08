@@ -90,6 +90,7 @@ func getMessagesCost(messages []string) []float64 {
 }
 
 /* variadic function - takes in any number of arguments as a slice*/
+/* variadic function - function signature takes in a variadic variable*/
 func totalMessagesCost(individualCosts ...float64) float64 {
 	totalCost := 0.0
 	for i:=0; i<len(individualCosts); i++ {
