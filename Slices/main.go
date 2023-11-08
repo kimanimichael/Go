@@ -30,13 +30,17 @@ func getMessagesForPlan(plan string) ([]string, error) {
 	}
 }
 
+// mySlice := make([]int, 5, 10)
+
+
+
 func main()  {
 	fmt.Printf("MK\n")
 	fmt.Println(getMessageWithRetries()[1])
 
 	proMessages,_ := getMessagesForPlan("pro")
 
-	/* Print array elements with quotes */
+	/* print array elements with quotes */
 	fmt.Printf("%+q", proMessages[:])
 
 	fmt.Printf("\n")
@@ -66,8 +70,13 @@ func main()  {
 	messagesCost := getMessagesCost(proMessages)
 	fmt.Println(messagesCost)
 
+	/* variadic function call */
+	totalTestCost :=  totalMessagesCost(1.5, 2.5, 3.5)
+	fmt.Println(totalTestCost)
 
-
+	/* variadic function call with slice as argument using spread operator*/
+	totalCost := totalMessagesCost(messagesCost...)
+	fmt.Println(totalCost)
 }
 
 func getMessagesCost(messages []string) []float64 {
@@ -80,4 +89,11 @@ func getMessagesCost(messages []string) []float64 {
 	return messagesCost
 }
 
+/* variadic function - takes in any number of arguments as a slice*/
+func totalMessagesCost(individualCosts ...float64) float64 {
+	totalCost := 0.0
+	for i:=0; i<len(individualCosts); i++ {
+		totalCost += individualCosts[i]
+	}
+	return totalCost
 }
