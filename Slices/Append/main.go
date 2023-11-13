@@ -44,6 +44,13 @@ func main() {
 	messageSlice = append(messageSlice, "MK")
 	fmt.Println(messageSlice)
 	
+	/* one variable of type cost*/
+	holidayCost := cost{
+		8, 7.8}
+
+	fmt.Println(holidayCost.value)
+
+	/* slices of type cost */
 	weekCost:= []cost{
 		{0, 4.0},
 		{1, 2.1},
