@@ -93,6 +93,14 @@ func main()  {
 	myCar.doors.number = 4
 	fmt.Printf("Number of doors in my car: %v \n", myCar.doors.number)
 
+	dadsCar := sales_data{
+		100.9,
+		150.7,
+		300.7,
+		3.0}
+
+	fmt.Println(dadsCar.remaining_stock)
+
 	newMessage := messageToSend{}
 	newMessage.sender.name = "MK"
 	newMessage.recepient.name = "Brexit"
