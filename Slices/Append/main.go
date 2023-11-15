@@ -61,4 +61,23 @@ func main() {
 	fmt.Println(len(weekCost))
 
 	fmt.Println(getCostsByDay(weekCost))
+
+	/* refrain from wrong use of append function below and above */
+	originalSlice := make([]int, 3)
+	secondSlice := append(originalSlice, 4)
+	thirdSlice := append(originalSlice, 5)
+	fmt.Println(originalSlice)
+	fmt.Println(secondSlice)
+	fmt.Println(thirdSlice)
+
+	/* bugSlice1 and bugSlice2 end up sharing the same memory address */
+	/* refrain from wrong use of append function below and above */
+	testSlice := make([]int, 3, 8)
+	bugSlice1 := append(testSlice, 4)
+	bugSlice2 := append(testSlice, 5)
+	fmt.Println(testSlice)
+	fmt.Println("bugSlice1: ", bugSlice1)
+	fmt.Println("bugSlice1 mem: ", &bugSlice1[0])
+	fmt.Println("bugSlice2: ", bugSlice2)
+	fmt.Println("bugSlice2 mem: ", &bugSlice2[0])
 }
