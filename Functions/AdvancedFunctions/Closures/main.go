@@ -26,3 +26,5 @@ func concatter()  func(string) string {
 		return doc
 	}
 }
+
+/* @todo Checkout how closures can be used by accident */
