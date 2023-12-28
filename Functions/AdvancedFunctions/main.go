@@ -11,7 +11,7 @@ func add(x, y int) int {
 func multiply (x, y int) int {
 	return x * y
 }
-
+/* higher order function taking a first class function as one of its parameters */
 func aggregateOperation(a, b, c int, arthimetic func(int, int)int) int {
 	return arthimetic(arthimetic(a,b),c)
 }
