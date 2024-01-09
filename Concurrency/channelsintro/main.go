@@ -37,6 +37,30 @@ func checkEven(num int) {
 	}
 	/* waits until the even wait group is zero before exiting the function*/
 	even.Wait()
-	
+
+	waitGroupLoopTest()
+
+}
+
+func waitGroupLoopTest() {
+    done := make(chan bool)
+	var test sync.WaitGroup
+    values := []string{"a", "b", "c"}
+    for _, v := range values {
+        test.Add(1)
+		/* important otherwise each iteration of the loop uses the same instance of the variable v so each closure shares that single variable */
+		v := v 
+		go func() {
+			defer test.Done()
+            fmt.Println(v)
+            done <- true
+        }()
+    }
+
+    // wait for all goroutines to complete before exiting
+    for _ = range values {
+        <-done
+    }
+	test.Wait()
 }
 
