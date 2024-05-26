@@ -1,0 +1,1 @@
+This repository contains code aiding in Learning Go concepts.
